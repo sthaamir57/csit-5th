@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400;
+    color: #1c052c;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+body {
+    background: #ebebeb;
+}
+
+.container{
+    position: fixed;
+    height: 100vh;
+    z-index: -10;
+}
+
+.blur{
+    height: 100vh;
+    width: 100vw;
+    background-color: #fafafc63;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    backdrop-filter: blur(100px);
+}
+
+.particle{
+    position: relative;
+    height: 100%;
+    width: 100vw;
+    overflow: hidden;
+    
+}
+
+.particle::before,
+.particle::after {
+    content: '';
+    width: 20vw;
+    height: 20vw;
+    position: fixed;
+    border-radius: 50%;
+    transform-origin: center center;
+    z-index: -1000;
+}
+
+.particle::after {
+    top: -10%;
+    left: -10%;
+    background-color: #fc7136;
+    animation: colorChange 20s infinite normal linear;
+}
+
+.particle::before {
+    bottom: -10%;
+    right: -10%;
+    background-color: #6b6b6b;
+    animation: colorChangeInv 20s infinite normal linear;
+}
+
+@keyframes colorChange {
+    0%      {transform:translate(0vw, 40vh);}
+    12.5%   {transform:translate(20vw, -5vh);}
+    25%     {transform:translate(50vw, -10vh);}
+    37.5%   {transform:translate(80vw, -5vh);}
+    50%     {transform:translate(100vw, 40vh);}
+    62.5%   {transform:translate(100vw, 80vh);}
+    75%     {transform:translate(50vw, 90vh);}
+    87.5%   {transform:translate(0vw, 90vh);}
+    100%    {transform:translate(0vw, 40vh);}
+}
+
+@keyframes colorChangeInv {
+    0%      {transform:translate(0vw, -40vh);}
+    12.5%   {transform:translate(-20vw, 5vh);}
+    25%     {transform:translate(-50vw, 10vh);}
+    37.5%   {transform:translate(-80vw, 5vh);}
+    50%     {transform:translate(-100vw, -40vh);}
+    62.5%   {transform:translate(-100vw, -80vh);}
+    75%     {transform:translate(-50vw, -90vh);}
+    87.5%   {transform:translate(0vw, -90vh);}
+    100%    {transform:translate(0vw, -40vh);}
+}
+
+.title {
+    padding: 2em 2em 1.5em 2em;
+    border-bottom: 1px solid #1b1b1b;
+}
+
+.calendar-container,
+.day, .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-container {
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid #000;
+}
+
+.calendar {
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1.5em 2.5em;
+    padding: 4em 0;
+}
+
+.calendar-title-left {
+    text-align: left;
+    align-self: flex-end;
+    grid-column: span 3;
+    margin-bottom: 2em;
+}
+
+.calendar-title-right {
+    text-align: right;
+    align-self: flex-end;
+    grid-column: span 4;
+    margin-bottom: 2em;
+}
+
+.circle {
+    background-color: #afafaf;
+    border: 1px solid #545454;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.d_day {
+    background-color: #141414;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    transition: transform 400ms ease;
+}
+
+.d_day:hover {
+    transform: scale(1.05);
+}
+
+.d_day::before {
+    position: absolute;
+    color: #000;
+    border: 1px solid #000;
+    background-color: #e7e7e7c6;
+    border-radius: 1em;
+    padding: 0.4em .6em;
+    font-size: 0.8rem;
+
+    top: -10%;
+    left: 50%;
+
+    text-transform: uppercase;
+    letter-spacing: .1em;
+
+    backdrop-filter: blur(10px);
+}
+
+.daa::before {content: 'daa';}
+.sad::before {content: 'sad';}
+.crypto::before {content: 'crypto';}
+.sim::before {content: 'sim';}
+.wt::before {content: 'wt';}
+.elective::before {content: 'elective';}
+
+.bg {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    z-index:-10;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bg::before {
+    content:"";
+    position:absolute;
+    z-index:-100;
+    top: -100%;
+    left: -50%;
+    width: 200%;
+    height: 312%;
+    overflow: hidden;
+    transform-origin: center center;
+  }
+  
+.resources {
+    padding: 1.5em 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.resources p {
+    margin-right: 1em;
+}
+
+.resources a {
+    padding: .5em 1em;
+    margin-left: 1em;
+    text-decoration: underline;
+}
+
+@media (max-width: 690px){
+    .circle {
+        font-size: 1rem;
+    }
+
+    .d_day::before {
+        font-size: 0.8rem;
+        top: -40%;
+        border-radius: 2em;
+    }
+
+    .calendar {
+        gap: 1.5em 1.5em;
+    }
+}
+
+@media (max-width: 450px) {
+    .circle {
+        font-size: 1rem;
+    }
+
+    .calendar {
+        gap: 1em .6em;
+    }
+
+    .particle::before,
+    .particle::after {
+    content: '';
+    width: 40vw;
+    height: 40vw;
+    }
+
+    .d_day::before {
+        font-size: 0.6rem;
+        top: -20%;
+    }
+
+    .day,
+    .resources,
+    .calendar-title-left,
+    .calendar-title-right {
+        font-size: 0.8rem;
+    }
+
+    .resources {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .resources .links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .particle::after {
+        background-color: rgb(254, 89, 19);
+    }
+    
+    .particle::before {
+        background-color: rgb(98, 98, 98);
+    }
+}
+
+@media (max-width: 350px) {
+    .circle {
+        font-size: 0.8rem;
+    }
+    .d_day::before {
+        top: -30%;
+    }
+}
