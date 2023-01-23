@@ -12,4 +12,14 @@ function daysLeftForExam() {
     }
   }
 
-  daysLeftForExam();
+function clock() {
+    const timeNow = document.querySelector('.time-now');
+    const date = new Date();
+    let hour = date.getHours();
+    let minutes = date.getMinutes();
+
+    timeNow.innerHTML = `${hour}:${minutes}`;
+}
+
+setInterval(clock, 1000);
+daysLeftForExam();

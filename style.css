@@ -100,6 +100,10 @@ body {
 }
 
 .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
     padding: 2em 2em 1.5em 2em;
     border-bottom: 1px solid #1b1b1b;
 }
@@ -261,6 +265,14 @@ body {
     .d_day::before {
         font-size: 0.6rem;
         top: -20%;
+    }
+
+    .title h1 {
+        font-size: 1.5rem;
+    }
+
+    .title h2 {
+        font-size: 1rem;
     }
 
     .day,
