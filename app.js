@@ -18,7 +18,7 @@ function clock() {
     let hour = date.getHours();
     let minutes = date.getMinutes();
 
-    timeNow.innerHTML = `${hour}:${minutes}`;
+    timeNow.innerHTML = `${String(hour).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
 }
 
 setInterval(clock, 1000);
