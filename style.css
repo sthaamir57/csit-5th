@@ -6,7 +6,7 @@
     padding: 0;
     font-family: 'Lexend', sans-serif;
     font-weight: 400;
-    color: #1c052c;
+    color: #292929;
 }
 
 a {
@@ -112,8 +112,9 @@ body {
     justify-content: space-between;
     align-items: flex-end;
     flex-wrap: wrap;
-    padding: 2em 2em 1.5em 2em;
-    border-bottom: 1px solid #1b1b1b;
+    padding: 2em 1em 1.5em 1em;
+    border-bottom: 1px solid #4d4d4d;
+    margin: 0 1em 0 1em;
 }
 
 .calendar-container,
@@ -126,7 +127,6 @@ body {
 .calendar-container {
     flex-direction: column;
     align-items: flex-start;
-    border-bottom: 1px solid #000;
 }
 
 .calendar {
@@ -176,7 +176,7 @@ body {
 
 .d_day::before {
     position: absolute;
-    color: #000;
+    color: #292929;
     border: 1px solid #000;
     background-color: #e7e7e7c6;
     border-radius: 1em;
@@ -200,13 +200,13 @@ body {
 .elective::before {content: 'elective';}
 
 .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
     z-index:-10;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .bg::before {
@@ -222,20 +222,47 @@ body {
   }
   
 .resources {
-    padding: 1.5em 2em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin: 2em 1em 2em 1em;
 }
 
 .resources p {
+    width: 100%;
+    padding: 0 0 1em 1em;
     margin-right: 1em;
+    border-bottom: 1px solid #4d4d4d;
+}
+
+.resources .links {
+    display: flex;
+    flex-direction: column;
+}
+
+.resources a:first-child {
+    margin-top: 2em;
 }
 
 .resources a {
-    padding: .5em 1em;
+    border-bottom: 1px solid #939191;
+    padding: 2em 1em;
     margin-left: 1em;
-    text-decoration: underline;
+    position: relative;
+}
+
+.resources a:hover::before {
+    transform: scaleX(1);
+}
+
+.resources a::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    height: 1px;
+    width:100%;
+    transform: scaleX(0);
+    background-color: #4d4d4d;
+    transition: transform .5s ease;
+    transform-origin: 0 0;
 }
 
 @media (max-width: 690px){
@@ -288,16 +315,6 @@ body {
     .calendar-title-left,
     .calendar-title-right {
         font-size: 0.8rem;
-    }
-
-    .resources {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .resources .links {
-        display: flex;
-        flex-direction: column;
     }
 
     .particle::after {
