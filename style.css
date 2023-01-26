@@ -31,6 +31,14 @@ body {
     z-index: -10;
 }
 
+.grain {
+    height: 100%;
+    width: 100%;
+    background: url(./grain.png);
+    background-position: 0 0;
+    background-size: 300px 300px;
+}
+
 .blur{
     height: 100vh;
     width: 100vw;
